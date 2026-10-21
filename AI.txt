@@ -1,0 +1,46 @@
+Tôi đã chạy xong phân tích cho 7–12/11/2026 (sửa một lỗi numpy 2.x trong script). Kết quả: bay camera nhìn thẳng xuống nên chọn 08:00–08:30 hoặc 14:20–14:50, còn camera nghiêng thì bay được cả ngày nếu quay lưng về phía mặt trời.
+
+Mặt trời (7–12/11)
+
+Mặt trời mọc lúc 05:50 và lặn lúc 17:00–17:10.
+Giữa trưa lúc 11:30, mặt trời cao 58.5–59.9° và nằm gần hướng Nam (azimuth ~181°). Độ cao này giảm dần khoảng 0.3° mỗi ngày.
+Các ngày gần như giống nhau, nên một kế hoạch bay dùng được cho cả 6 ngày.
+
+Cửa sổ bay tốt (tránh chói ≥25°, mặt trời ≥30°)
+
+Gimbal	Giờ bay	Heading đề xuất
+-90° (nhìn thẳng xuống)	08:00–08:30 và 14:20–14:50	~110° buổi sáng, ~40–50° buổi chiều
+-60° hoặc -45°	08:00–14:50	Camera quay lưng về mặt trời: ~290° lúc 08:00, ~10–20° lúc 11:30, ~50° lúc 14:50
+Với camera nhìn thẳng xuống, từ 09:00 đến 14:00 mặt trời cao nên vệt phản chiếu nằm ngay trong khung hình. Cửa sổ chỉ có 30 phút mỗi buổi vì tôi đặt ngưỡng an toàn 25°. Hạ ngưỡng xuống khoảng 10° sẽ mở rộng cửa sổ.
+Với camera nghiêng, nếu bay hai chiều mà camera luôn nhìn theo hướng bay thì không có giờ nào đạt. Phải giữ yaw gimbal cố định, quay lưng về phía mặt trời, cả lượt đi lẫn lượt về.
+
+Bóng râm
+
+Lúc 12:00 bóng cây cao 8 m chỉ dài khoảng 5 m. Lúc 08:00 bóng dài khoảng 13 m (mặt trời ~30°), và dài hơn nhiều sau 15:00.
+Plan hiện tại bay lúc 16:34 ngày 19/10, mặt trời chỉ cao 10.3° ở hướng Tây (azimuth 257°). Bóng cây 8 m dài khoảng 44 m, che gần như toàn bộ vùng 62×50 m. Với camera nhìn thẳng xuống thì không có waypoint nào bị chói, nhưng với gimbal -60° hoặc -45° thì 14/36 waypoint bị chói.
+
+Gió (giả định)
+
+Tôi dùng gió Đông Bắc 4.5 m/s, vì không có dự báo cho ngày 7/11 (còn 17 ngày). Gió mùa Đông Bắc là điển hình cho vùng này vào tháng 11.
+Plan hiện tại có nhiều chặng ngang gió. Với tốc độ bay 6 m/s thì góc lệch hướng (crab) lên tới ~48°. Dải bay song song trục 45°/225° sẽ giảm lệch hướng.
+Gió khoảng 4.5 m/s chiếm hơn 70% tốc độ bay, cần kiểm tra gió thật trước khi bay.
+
+Điều cần bạn xác nhận
+
+Thứ tự 4 góc GPS: tôi giả định BL, BR, TR, TL nên ảnh quay 160° (phải) và 252° (dưới). Nếu sai, hướng bóng và heading đều lệch; đổi CORNER_ORDER ở đầu script rồi chạy lại.
+Tỉ lệ ảnh: 4 góc GPS cho 62.2×50.3 m (tỉ lệ 1.24) nhưng ảnh là 1279×816 (1.57), lệch hơn 10%. Có thể ảnh bị crop hoặc kéo giãn, nên vị trí pixel→GPS có thể sai vài mét.
+FOV camera: tôi đặt ngang 82° và dọc 52°, bạn hãy thay bằng thông số camera thật (HFOV, VFOV).
+Mô hình chói: tôi chỉ tính phản xạ gương trên mặt phẳng ngang và mặt trời lọt vào khung hình. Cây cối và mái nhà phản xạ phức tạp hơn nên kết quả chỉ là ước lượng hình học.
+
+Nếu bạn gửi giúp thông số camera, thứ tự góc, hoặc dự báo gió thật, tôi sẽ chạy lại cho sát hơn.
+
+Files are in /home/claude/out:
+
+report.md
+windows.csv
+sun_table.csv
+flight_legs.csv
+fig1_sun_path.png
+fig3_heatmap.png
+fig4_map.png
+/home/claude/drone_sun_analysis.py

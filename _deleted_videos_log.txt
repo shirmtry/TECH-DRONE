@@ -1,0 +1,12 @@
+# Danh sach video da xoa
+C:\Users\dinht\Downloads\261011-kit\Optimal_Segment_1_06h00.mp4
+C:\Users\dinht\Downloads\261011-kit\Optimal_Segment_2_08h24.mp4
+C:\Users\dinht\Downloads\261011-kit\SIMULATION_NO_YOLO.mp4
+C:\Users\dinht\Downloads\261011-kit\SMART_EXPLORER_SAR.mp4
+C:\Users\dinht\Downloads\261011-kit\Smart_SAR_Flight.mp4
+C:\Users\dinht\Downloads\261011-kit\Smart_Sim_20261017_090000.mp4
+C:\Users\dinht\Downloads\261011-kit\SMOOTH_CURVE_SAR_Flight.mp4
+C:\Users\dinht\Downloads\261011-kit\sun_path_simulation.mp4
+C:\Users\dinht\Downloads\261011-kit\SUNLIGHT_TIMELAPSE.mp4
+C:\Users\dinht\Downloads\261011-kit\TIMELAPSE_07_11_2026.mp4
+C:\Users\dinht\Downloads\261011-kit\TRUE_LINEAR_SAR_Flight.mp4
